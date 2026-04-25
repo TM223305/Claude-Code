@@ -1,11 +1,24 @@
 {
   "mcpServers": {
     "tidy3d": {
-      "command": "/root/.local/bin/uvx",
-      "args": ["tidy3d-mcp"],
+      "command": "bash",
+      "args": ["-lc", "uvx tidy3d-mcp"],
       "env": {
         "SIMCLOUD_APIKEY": "CBG3ZUR8HwZwmCGiXg86emj9PY8Xy95KhllDs4eo7zITEor8"
       }
     }
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/stop-hook-git-check.sh"
+          }
+        ]
+      }
+    ]
   }
 }
